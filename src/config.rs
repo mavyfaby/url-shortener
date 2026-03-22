@@ -2,6 +2,8 @@ use std::env;
 
 pub struct AppConfig {
     pub tz: String,
+    
+    pub port: u16,
 
     pub postgres_host: String,
     pub postgres_port: u16,
@@ -25,6 +27,12 @@ impl AppConfig {
         Self {
             tz: env::var("TZ")
                 .expect("TZ env is required."),
+            
+            port: env::var("PORT")
+                .expect("PORT env is required.")
+                .parse::<u16>()
+                .expect("PORT must be a valid port."),
+            
             postgres_host: env::var("POSTGRES_HOST")
                 .expect("POSTGRES_HOST env is required."),
             postgres_port: env::var("POSTGRES_PORT")

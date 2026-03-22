@@ -6,6 +6,7 @@ fn main() {
     let config = AppConfig::load();
 
     println!("TZ: {}", config.tz);
+    println!("PORT: {}", config.port);
     println!("POSTGRES_HOST: {}", config.postgres_host);
     println!("POSTGRES_PORT: {}", config.postgres_port);
     println!("POSTGRES_USER: {}", config.postgres_user);
