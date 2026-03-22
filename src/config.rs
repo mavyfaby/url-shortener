@@ -15,12 +15,9 @@ impl AppConfig {
         let env_file = env::var("ENV_FILE")
             .expect("ENV_FILE env is required.");
 
-        let env_file_path_raw = env::current_dir()
+        let env_file_path = env::current_dir()
             .expect("Error occurred while getting current directory.")
             .join(env_file);
-
-        let env_file_path = env_file_path_raw.to_str()
-            .expect("Error occurred while converting the env file to string");
 
         dotenvy::from_path(env_file_path)
             .expect("Cannot load environment file.");
