@@ -1,0 +1,8 @@
+[package]
+name = "url-shortener-api"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+url-shortener-infra = { path = "../infra" }
+tokio = { version = "1.51.0", features = ["rt-multi-thread", "macros", "net"] }
